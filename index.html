@@ -1,175 +1,195 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<title>株式会社AI Solutions Lab</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="株式会社AI Solutions Lab">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>株式会社AI Solutions Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="株式会社AI Solutions Lab">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="home">
 
-<div id="container">
+    <div id="container">
 
-<header>
+        <header>
+            <h1 id="logo"><a href="index.html">AI Solutions Lab</a></h1>
 
-<h1 id="logo"><a href="index.html">AI Solutions Lab</a></h1>
+            <!--開閉ブロック-->
+            <div id="menubar">
 
-<!--開閉ブロック-->
-<div id="menubar">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="">SERVICE</a>
+                            <ul>
+                                <li><a href="service.html">競馬をAIで予想する</a></li>
+                                <li><a href="service.html">パーソナライズChatAI</a></li>
+                                <li><a href="service.html">Webサイトの作成</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="company.html">COMPANY</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
 
-<nav>
-<ul>
-<li><a href="index.html">HOME</a></li>
-<li><a href="">SERVICE</a>
-	<ul>
-	<li><a href="service.html">メニューメニューメニュー</a></li>
-	<li><a href="service.html">メニュー</a></li>
-	<li><a href="service.html">メニュー</a></li>
-	<li><a href="service.html">メニュー</a></li>
-	</ul>
-</li>
-<li><a href="company.html">COMPANY</a></li>
-<li><a href="contact.html">CONTACT</a></li>
-</ul>
-</nav>
+                <div class="sh">株式会社AI Solutions Lab</div>
 
-<div class="sh">株式会社AI Solutions Lab</div>
+            </div>
+            <!--/#menubar-->
+        </header>
 
-</div>
-<!--/#menubar-->
+        <script>
+            window.onload = function () {
+                fetch('header.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        document.getElementById('header-container').innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Failed to load header: ', error);
+                    });
+            };
+        </script>
 
-</header>
 
-<aside id="mainimg">
+        <aside id="mainimg">
 
-<div class="slide slide1">
-<div>
-<h1>未来を創造</h1>
-<p>AIの力で限界を打ち破り、前進。<br>
-常に新しい問題解決を追求し、未知の課題に挑む企業です。</p>
-<p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
-</div>
-</div>
+            <div class="slide slide1">
+                <div>
+                    <h1>未来を創造</h1>
+                    <p>AIの力で限界を打ち破り、前進。<br>
+                        常に新しい問題解決を追求し、未知の課題に挑む企業です。</p>
+                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                </div>
+            </div>
 
-<div class="slide slide2">
-<div>
-<h1>Next Innovation</h1>
-<p>AIで世界を再定義する。<br>
-革新的なソリューションをここから発信します。</p>
-<p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
-</div>
-</div>
+            <div class="slide slide2">
+                <div>
+                    <h1>Next Innovation</h1>
+                    <p>AIで世界を再定義する。<br>
+                        革新的なソリューションをここから発信します。</p>
+                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                </div>
+            </div>
 
-<div class="slide slide3">
-<div>
-<h1>AIで新たな扉を<br>
-切り開こう</h1>
-<p>AIで未来を創る。<br>
-新しい技術で世界を変える一歩を踏み出そう！</p>
-<p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
-</div>
-</div>
+            <div class="slide slide3">
+                <div>
+                    <h1>AIで新たな扉を<br>
+                        切り開こう</h1>
+                    <p>AIで未来を創る。<br>
+                        新しい技術で世界を変える一歩を踏み出そう！</p>
+                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                </div>
+            </div>
 
-</aside>
+        </aside>
 
-<div id="contents">
+        <div id="contents">
 
-<main>
+            <main>
 
-<section class="bg1">
+                <section class="bg1">
 
-<h2 class="c"><span class="fade-in-text">Information</span><span class="hosoku">ご案内</span></h2>
+                    <h2 class="c"><span class="fade-in-text">Information</span><span class="hosoku">ご案内</span></h2>
 
-<div class="list-grid1">
+                    <div class="list-grid1">
 
-<div class="list">
-<figure><img src="images/horse_ai_sumnail.png" alt=""></figure>
-<div class="text">
-<h4>競馬予想AIの開発</h4>
-<p>我々の競馬予想AIは、数千のファクターを解析して高精度の予想を提供し、業界トップクラスの性能を実現しています。機械学習を用いて従来の予想方法の限界を超えることが可能です。</p>
-</div>
-<p class="btn"><a href="service2.html">詳しくみる</a></p>
-</div>
+                        <div class="list">
+                            <figure><img src="images/horse_ai_sumnail.png" alt=""></figure>
+                            <div class="text">
+                                <h4>競馬予想AIの開発</h4>
+                                <p>我々の競馬予想AIは、数千のファクターを解析して高精度の予想を提供し、業界トップクラスの性能を実現しています。機械学習を用いて従来の予想方法の限界を超えることが可能です。
+                                </p>
+                            </div>
+                            <p class="btn"><a href="service2.html">詳しくみる</a></p>
+                        </div>
 
-<div class="list">
-<figure><img src="images/rag_sumnail.png" alt=""></figure>
-<div class="text">
-<h4>RAGを用いたあなただけの対話AI</h4>
-<p>ChatGPTをあなた好みにチューニングします。複雑な社内情報や法律の知識なども教え込ませることで従来のAIよりも正確に応答することが可能になります。</p>
-</div>
-<p class="btn"><a href="service2.html">詳しくみる</a></p>
-</div>
+                        <div class="list">
+                            <figure><img src="images/rag_sumnail.png" alt=""></figure>
+                            <div class="text">
+                                <h4>RAGを用いたあなただけの対話AI</h4>
+                                <p>ChatGPTをあなた好みにチューニングします。複雑な社内情報や法律の知識なども教え込ませることで従来のAIよりも正確に応答することが可能になります。</p>
+                            </div>
+                            <p class="btn"><a href="service2.html">詳しくみる</a></p>
+                        </div>
 
-<div class="list">
-<figure><img src="images/web_sumnail.png" alt=""></figure>
-<div class="text">
-<h4>AIの提供だけにとどまりません</h4>
-<p>Webサイトの作成からapiの提供まで我々がAIを使うことで幅広く低コストで実現します。</p>
-</div>
-<p class="btn"><a href="service2.html">詳しくみる</a></p>
-</div>
+                        <div class="list">
+                            <figure><img src="images/web_sumnail.png" alt=""></figure>
+                            <div class="text">
+                                <h4>AIの提供だけにとどまりません</h4>
+                                <p>Webサイトの作成からapiの提供まで我々がAIを使うことで幅広く低コストで実現します。</p>
+                            </div>
+                            <p class="btn"><a href="service2.html">詳しくみる</a></p>
+                        </div>
 
-</div>
-<!--/.list-grid1-->
+                    </div>
+                    <!--/.list-grid1-->
 
-</section>
+                </section>
 
-<section>
+                <section>
 
-<h2><span class="fade-in-text">What's New</span><span class="hosoku">お知らせ</span></h2>
+                    <h2><span class="fade-in-text">What's New</span><span class="hosoku">お知らせ</span></h2>
 
-<dl class="new">
-<dt>2024/09<span class="icon-bg2">重要</span></dt>
-<dd>創業</dd>
-<!-- <dt>20XX/00/00<span class="icon-bg2">重要</span></dt>
+                    <dl class="new">
+                        <dt>2024/09<span class="icon-bg2">重要</span></dt>
+                        <dd>創業</dd>
+                        <!-- <dt>20XX/00/00<span class="icon-bg2">重要</span></dt>
 <dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 <dt>20XX/00/00<span class="icon-bg1">サービス</span></dt>
 <dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 <dt>20XX/00/00<span>その他</span></dt>
 <dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd> -->
-</dl>
+                    </dl>
 
-</section>
+                </section>
 
-</main>
+            </main>
 
-</div>
-<!--/#contents-->
+        </div>
+        <!--/#contents-->
 
-<ul id="footermenu">
-<li><a href="index.html">HOME</a></li>
-<li><a href="service.html">SERVICE</a></li>
-<li><a href="company.html">COMPANY</a></li>
-<li><a href="contact.html">CONTACT</a></li>
-</ul>
+        <ul id="footermenu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="service.html">SERVICE</a></li>
+            <li><a href="company.html">COMPANY</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
 
-<footer>
-<small>Copyright&copy; <a href="index.html">株式会社AI Solutions Lab</a> All Rights Reserved.</small>
-<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
-</footer>
+        <footer>
+            <small>Copyright&copy; <a href="index.html">株式会社AI Solutions Lab</a> All Rights Reserved.</small>
+            <span class="pr"><a href="https://template-party.com/" target="_blank">《Web
+                    Design:Template-Party》</a></span>
+        </footer>
 
-<!--ページの上部へ戻るボタン-->
-<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+        <!--ページの上部へ戻るボタン-->
+        <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
 
-</div>
-<!--/#container-->
+    </div>
+    <!--/#container-->
 
-<!--開閉ボタン（ハンバーガーアイコン）-->
-<div id="menubar_hdr">
-<span></span><span></span><span></span>
-</div>
+    <!--開閉ボタン（ハンバーガーアイコン）-->
+    <div id="menubar_hdr">
+        <span></span><span></span><span></span>
+    </div>
 
-<!--jQueryの読み込み-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<!--パララックス（inview）-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-<script src="js/jquery.inview_set.js"></script>
+    <!--パララックス（inview）-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
 
-<!--このテンプレート専用のスクリプト-->
-<script src="js/main.js"></script>
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
