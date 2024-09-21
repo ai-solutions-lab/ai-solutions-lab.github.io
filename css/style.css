@@ -380,6 +380,25 @@ main h3 {
 }
 
 
+/*h5(見出し)要素*/
+main h5 {
+	font-family: "Reddit Sans", "Noto Sans JP", sans-serif;
+	font-size: 3rem;		/*文字サイズ。基準の3倍の大きさに。*/
+	letter-spacing: 0.1em;	/*文字間隔を少しだけ広く*/
+	color: black;	/*文字色。css冒頭で指定しているprimary-colorを読み込みます*/
+}
+
+/*bg1背景の上でのh5*/
+.bg1 h5 {
+	color: black;	/*文字色。css冒頭で指定しているprimary-text-colorを読み込みます*/
+}
+
+/*h5内の小文字部分*/
+main h5 .hosoku {
+	display: block;font-weight: normal;
+	font-size: 0.3em;	/*親要素の40%のサイズに*/
+}
+
 /*2カラム
 ---------------------------------------------------------------------------*/
 .main-contents {
