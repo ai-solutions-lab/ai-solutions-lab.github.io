@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <title>単勝回収率120%の競馬予想AI Laplaceができるまで</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Twitterカードタイプ（summary_large_imageは大きい画像を表示） -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Twitterカードの画像 -->
+    <meta name="twitter:image" content="https://ai-solutions-lab.com/images/horse_ai_sumnail.png" />
+
+    <!-- Twitterでのタイトル -->
+    <meta name="twitter:title" content="単勝回収率120%の競馬予想AI Laplaceができるまで" />
+
+    <!-- Twitterでの説明文 -->
+    <meta name="twitter:description" content="単勝回収率120%の競馬予想AI Laplaceができるまで" />
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4257BHZ3F8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-4257BHZ3F8');
+</script>
+
+
+<body>
+    <div id="header"></div>
+    <div class="page-title-wrapper">
+        <h1 class="page-title">単勝回収率120%の競馬予想AI Laplaceができるまで</h1>
+        <div class="page-meta">
+            <span>2024/09/26更新</span>
+            <i class="fa fa-user"></i>
+            <span>KAWANO</span>
+        </div>
+        <!-- <figure><img src="../images/horse_ai_sumnail.png" alt="AIによる競馬予想の革新"
+                style="width: 40%; height: auto; margin: 0 auto;"></figure> -->
+    </div>
+    <div class="container">
+        <main>
+            <article>
+                <div class="tags">
+                    <span class="tag">機械学習</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">データサイエンス</span>
+                    <span class="tag">python</span>
+                </div>
+                <section>
+                    <img src="../images/horse_ai_sumnail.png" alt="AI競馬予想" class="responsive-image">
+                    <p>株式会社AI Solutions Labでは競馬AIの開発請負も行なっております．</p>
+                    <p>今回は弊社で開発している競馬予想AIである<a href="https://twitter.com/LaplaceAI"
+                            target="_blank">Laplace</a>の開発プロセスについてご紹介します．</p>
+                </section>
+                <section>
+                    <h2>1. はじめに</h2>
+                    <p>「儲かる競馬AI作ることは可能か？」は誰しも一度は考えたことがある疑問だと思います．私の答えは「可能」です．</p>
+                    <p>競馬は馬の能力，血統，天気等の様々な要素が複合して結果に影響します．これらのデータを分析するという点でAIや統計は非常に有効な手段になります．</p>
+                    <p>私は2021年からAIで競馬の分析をしており，<a href="https://twitter.com/LaplaceAI"
+                            target="_blank">X(Twitter)</a>で予想を投稿しておりました．
+                        Laplaceは現在も進化を続けており，2023年は回収率105%という結果を残しました．</p>
+                </section>
+                <section>
+                    <h2>2. データ収集</h2>
+                    <p>弊社ではカスタマーのデータベースを使用して最適な競馬予想AIを開発していますが，
+                        <a href="http://www.jrdb.com/" target="_blank">JRDB</a>を使用しても回収率100%を超える結果を得ることができます．
+                    </p>
+                    <p>その他の選択肢としてはスクレイピングや，JRA-VANといったサービスを使用することが考えられます．</p>
+                    <p>使用するデータには以下のようなデータが必要です．</p>
+                    <ul>
+                        <li>馬: 血統，体重，年齢，性別など．</li>
+                        <li>騎手: 騎手の過去の成績など．</li>
+                        <li>コース，天気: 距離，天気，馬場など．</li>
+                        <li>レース結果: 着順，タイム，オッズなど．</li>
+                    </ul>
+                    <p>JRDBでは得られたデータはtextファイルなため，パースする必要があります．
+                        <a href="https://github.com/absoishi/jrdb" target="_blank">https://github.com/absoishi/jrdb</a>
+                        <br>こちらのリポジトリを使用することで簡単にデータをパースすることができます．
+                    </p>
+                    </p>
+                </section>
+                <section>
+                    <h2>3. 特徴量エンジニアリング</h2>
+                    <p>得られたデータは大抵そのままでは性能は出せません．</p>
+                    <p>特徴量エンジニアリングは，データを機械学習アルゴリズムが効果的に学習できる形式に変換するプロセスです．
+                        このステップでは，データから有用な特徴を抽出し，変換することで，モデルの学習効率と予測精度を大幅に向上させることができます．
+                        情報量の多さは性能に直結するため，独自の特徴量を作ることが非常に重要です．
+                    </p>
+                    <p>特徴量エンジニアリングの例としては以下のようなものがあります．
+                    <ul>
+                        <li>タイムが1:55.3(分:秒)のようになっているところを115.3(秒)に変換．</li>
+                        <li>騎手や血統などのカテゴリカルデータに対してのターゲットエンコーディング．</li>
+                        <li>過去の馬の成績からの平均値や最大値などの統計量の追加．</li>
+                        <li>特徴の分布が正規分布に近くなるように変換．</li>
+                    </ul>
+                    </p>
+                    <p>特徴量エンジニアリングについては
+                        <a href="https://www.oreilly.co.jp/books/9784814400546/" target="_blank">事例で学ぶ特徴量エンジニアリング</a>
+                        が参考になります．
+                    </p>
+                    <p>特徴量はレース前に得ることができるデータのみで作る必要があります．
+                        タイムや確定オッズなどのレース前に得られないデータを使用してしまうと，「リーク」となってしまい，バックテストでは一見高性能のモデルでも
+                        実際に運用を始めると性能が出ない結果となります．
+                    </p>
+                </section>
+                <section>
+                    <h2>4. 目的設定</h2>
+                    <p>儲かる競馬AIを作るためには目的設定は最も重要な項目だと考えています．
+                        どのような指標を最適化するかによって，モデルの構造や特徴量エンジニアリングの方針すらも変わってきます．
+                    </p>
+                    <p>目的設定の例としては以下のようなものがあります．
+                    <ul>
+                        <li>1着を1，それ以外を0として1着確率を目的変数とする．</li>
+                        <li>3着以内を1，それ以外を0として3着内確率を目的変数とする．</li>
+                        <li>馬ごとの回収率を目的変数とする．</li>
+                    </ul>
+                    </p>
+                    <p>より正確な予測を行うためにもこの目的設定は重要になってきます．
+                        例えば，オッズを予測させるときは逆数に戻してから支持率として予測させることで，
+                        モデルによってはより正確な予測が可能になることがあります．
+                    </p>
+                    <p>ここで重要なのが「当てる」のと「儲ける」のは違うという点です．
+                        例えば，1着確率を目的変数とするモデルを作成したとして，1着確率が高い馬を購入したとしても，
+                        その馬のオッズが低い場合は儲けにはつながりません．目的変数をうまく設定することで，「儲ける」ためのモデルを作成することができます．
+                    </p>
+                </section>
+                <section>
+                    <h2>5. 学習</h2>
+                    <p>
+                        学習の際にデータセットはtrain, validation, testの3つに分割する必要があります．
+                        詳しくは<a href="https://qiita.com/RDProm/items/f43406da3367a5a6cc2f"
+                            target="_blank">この記事</a>等を参考にしてください．
+                    </p>
+                    <p>
+                        競馬のデータは年間3千レース程度と少ないため，最適なデータセット分割は難しいです．コースの改修があるため，過去のデータはあまり役に立たないこともあります．
+                    </p>
+                    <p>今回扱うデータはテーブルデータと言われるカテゴリです．テーブルデータはLightGBMなどの勾配ブースティングアルゴリズム
+                        やニューラルネットワークのモデルを使用することが一般的です．
+                    </p>
+                </section>
+                <section>
+                    <h2>6. 結果</h2>
+                    <p>以下がLaplaceの2024年の現在までの単勝の結果です．</p>
+                    <img src="images-ai-horse-racing/tansyo_result.png" alt="Laplaceの2024年の単勝結果"
+                        class="responsive-image">
+                    <p>的中率11%，回収率119%という結果となりました．</p>
+                </section>
+                <section>
+                    <h2>7. まとめ</h2>
+                    <p>今回は中央競馬における予想AIの開発について紹介しました．<br>
+                        AI Solutions Labでは中央競馬だけではなく地方競馬AIについても開発しています．
+                        ご興味のある方はお気軽に<a href="https://ai-solutions-lab.com/contact.html" target="_blank">お問い合わせ</a>くだい．
+                    </p>
+                </section>
+                <section>
+                    <h2>8. 参考文献</h2>
+                    <p>最後に競馬AIを作る際に参考にしたサイトや文献を紹介します．
+                    <ul>
+                        <li><a href="https://www.amazon.co.jp/%E9%A6%AC%E5%88%B8%E8%A3%81%E5%88%A4%E2%80%9C%E6%9C%AC%E4%BA%BA%E2%80%9D%E3%81%8C%E5%88%9D%E3%82%81%E3%81%A6%E6%98%8E%E3%81%8B%E3%81%99-%E3%80%8C%E9%A6%AC%E5%88%B8%E8%A3%81%E5%88%A4-%E2%94%80%E7%AB%B6%E9%A6%AC%E3%81%A71%E5%84%845000%E4%B8%87%E5%86%86%E5%84%B2%E3%81%91%E3%81%9F%E4%BA%88%E6%83%B3%E6%B3%95%E3%81%AE%E7%9C%9F%E5%AE%9F%E2%94%80%E3%80%8D-%E5%8D%8D/dp/4895958809"
+                                target="_blank">馬券裁判</a></li>
+                        <li><a href="https://www.amazon.co.jp/AI%E7%AB%B6%E9%A6%AC-%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%81%AF%E9%A6%AC%E5%88%B8%E3%82%92%E5%88%B6%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B-%E7%AB%B6%E9%A6%AC%E7%8E%8B%E9%A6%AC%E5%88%B8%E6%94%BB%E7%95%A5%E6%9C%AC%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%9F%8E%E5%B4%8E-%E5%93%B2/dp/4867100110"
+                                target="_blank">AI競馬</a></li>
+                        <li><a href="https://www.oreilly.co.jp/books/9784814400546/"
+                                target="_blank">事例で学ぶ特徴量エンジニアリング</a></li>
+                        <li><a href="https://alphaimpact.co.jp/publications/" target="_blank">AlphaImpact発表文献</a></li>
+                    </ul>
+                    </p>
+                </section>
+            </article>
+        </main>
+        <aside>
+            <div class="share-buttons">
+                <button class="share-button share-button" onclick="shareOnX()">
+                    <img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="X"
+                        style="height: 45px; vertical-align: middle;">
+                    <span>Share on LINE</span>
+                </button>
+                <button class="share-button share-button" onclick="shareOnLINE()">
+                    <img src="https://img.icons8.com/color/48/000000/line-me.png" alt="LINE"
+                        style="height: 50px; vertical-align: middle;">
+                    <span>Share on LINE</span>
+                </button>
+                <button class="share-button share-button" onclick="shareOnFacebook()">
+                    <img src="https://img.icons8.com/?size=100&id=13912&format=png&color=000000" alt="Facebook"
+                        style="height: 50px; vertical-align: middle;">
+                    <span>Share on Facebook</span>
+                </button>
+            </div>
+            <div class="toc">
+                <h2>目次</h2>
+                <ul id="toc"></ul>
+            </div>
+        </aside>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const headings = document.querySelectorAll('main h2, main h3'); // main タグ内の h2 と h3 タグを検索
+                const toc = document.getElementById('toc');
+
+                headings.forEach(heading => {
+                    const id = heading.textContent.replace(/\s+/g, '-').toLowerCase(); // 見出しのテキストをIDに変換
+                    heading.id = id; // 見出しにIDを設定
+
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.textContent = heading.textContent;
+                    a.href = '#' + id;
+
+                    li.appendChild(a);
+                    toc.appendChild(li); // 目次に項目を追加
+                });
+            });
+        </script>
+        <script>
+            function shareOnX() {
+                const title = document.title;
+                const url = window.location.href;
+                const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+                window.open(twitterUrl, '_blank');
+            }
+
+            function shareOnLINE() {
+                const url = window.location.href;
+                const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
+                window.open(lineUrl, '_blank');
+            }
+
+            function shareOnFacebook() {
+                const url = window.location.href;
+                const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                window.open(facebookUrl, '_blank');
+            }
+        </script>
+    </div>
+    <div id="footer"></div>
+    <!--ページの上部へ戻るボタン-->
+    <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+    <script>
+        fetch("header.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#header").innerHTML = data);
+        fetch("footer.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#footer").innerHTML = data);
+    </script>
+</body>
+
+</html>

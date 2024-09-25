@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>株式会社AI Solutions Lab - 最新の開発情報</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="株式会社AI Solutions LabのTech Blogでは、AI技術を中心に最新の開発技術と情報を提供します。">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4257BHZ3F8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4257BHZ3F8');
+</script>
+
+<body class="home">
+
+    <div id="container">
+
+        <div id="header"></div>
+        <div id="contents">
+
+            <main>
+
+                <section class="bg1">
+
+                    <h2 class="c"><span class="fade-in-text">Latest&nbsp;Articles</span><span class="hosoku">最新記事</span>
+                    </h2>
+
+                    <div class="list-grid1">
+
+                        <div class="list">
+                            <figure><img src="images/horse_ai_sumnail.png" alt="AIによる競馬予想の革新"></figure>
+                            <div class="text">
+                                <h4>AIによる競馬予想の革新</h4>
+                                <p>データ分析と機械学習を駆使して、競馬予想の精度を大幅に向上させる方法について解説します。</p>
+                                <p class="date"><i class="far fa-clock"></i> 2024.09.26</p>
+                                <p class="tag"><i class="fas fa-tag"></i> AI, Machine Learning, Data Analytics</p>
+                            </div>
+                            <p class="btn"><a href="blogs/article-ai-horse-racing.html">詳しく読む</a></p>
+                        </div>
+
+                        <!-- 他の記事リストは前のレスポンスに含まれる -->
+                        <!-- 記事リストが続く -->
+
+                    </div>
+                    <!--/.list-grid1-->
+
+                </section>
+
+                <!-- <section>
+
+                    <h2><span class="fade-in-text">Categories</span><span class="hosoku">カテゴリー</span></h2>
+
+                    <ul class="category-list">
+                        <li><a href="category-ai.html">AI・機械学習</a></li>
+                        <li><a href="category-data-science.html">データサイエンス</a></li>
+                        <li><a href="category-robotics.html">ロボティクス</a></li>
+                        <li><a href="category-neural-networks.html">ニューラルネットワーク</a></li>
+                        <li><a href="category-ethics.html">AI倫理</a></li>
+                        <li><a href="category-sports-analytics.html">スポーツアナリティクス</a></li>
+                    </ul>
+
+                </section> -->
+
+                <section>
+                    <h2><span class="fade-in-text">About&nbsp;Us</span><span class="hosoku">Tech Blogについて</span></h2>
+                    <p>
+                        AI Solutions LabのTech Blogは、革新的なAI技術とその応用に焦点を当てたプラットフォームです。<br>
+                        私たちは、AIが持つ無限の可能性を探求し、その知識を業界の専門家と共有することにコミットしています。<br>
+                        このブログでは、最新の研究成果、技術的なブレークスルー、そしてAIの倫理的な考察について深く掘り下げていきます。
+                    </p>
+                    <h2></h2>
+                </section>
+
+            </main>
+
+        </div>
+        <!--/#contents-->
+
+        <div id="footer"></div>
+        <script>
+            fetch("header.html")
+                .then((response) => response.text())
+                .then((data) => document.querySelector("#header").innerHTML = data);
+            fetch("footer.html")
+                .then((response) => response.text())
+                .then((data) => document.querySelector("#footer").innerHTML = data);
+        </script>
+
+        <!--ページの上部へ戻るボタン-->
+        <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+    </div>
+    <!--/#container-->
+
+    <!--開閉ボタン（ハンバーガーアイコン）-->
+    <div id="menubar_hdr">
+        <span></span><span></span><span></span>
+    </div>
+
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--パララックス（inview）-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="js/jquery.inview_set.js"></script>
+
+    <!--このテンプレート専用のスクリプト-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
