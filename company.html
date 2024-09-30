@@ -70,7 +70,27 @@
         <script>
             fetch("header.html")
                 .then((response) => response.text())
-                .then((data) => document.querySelector("#header").innerHTML = data);
+                .then(data => {
+                    document.querySelector("#header").innerHTML = data;
+
+                    // header.htmlがロードされた後に実行するスクリプト
+                    var $menubar = $('#menubar');
+                    var $menubarHdr = $('#menubar_hdr');
+
+                    // ハンバーガーメニューをクリックした際の処理
+                    $menubarHdr.click(function () {
+                        $(this).toggleClass('ham'); // トグルするクラス
+                        $menubar.toggleClass('display-block display-none');
+                    });
+
+                    // アンカーリンクの場合にメニューを閉じる処理
+                    $menubar.find('a[href*="#"]').click(function () {
+                        $menubar.removeClass('display-block').addClass('display-none');
+                        $menubarHdr.removeClass('ham');
+                    });
+
+                    // その他のDOMイベントハンドラーもここに追加
+                });
             fetch("footer.html")
                 .then((response) => response.text())
                 .then((data) => document.querySelector("#footer").innerHTML = data);

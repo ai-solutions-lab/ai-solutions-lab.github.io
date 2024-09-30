@@ -12,11 +12,11 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4257BHZ3F8"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-4257BHZ3F8');
+    gtag('config', 'G-4257BHZ3F8');
 </script>
 
 <body class="home">
@@ -31,7 +31,7 @@
                     <h1>未来を創造</h1>
                     <p>AIの力で限界を打ち破り、前進。<br>
                         常に新しい問題解決を追求し、未知の課題に挑む企業です。</p>
-                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                    <p class="btn-border-radius"><a href="service.html">もっと詳しくみる</a></p>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                     <h1>Next Innovation</h1>
                     <p>AIで世界を再定義する。<br>
                         革新的なソリューションをここから発信します。</p>
-                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                    <p class="btn-border-radius"><a href="service.html">もっと詳しくみる</a></p>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                         切り開こう</h1>
                     <p>AIで未来を創る。<br>
                         新しい技術で世界を変える一歩を踏み出そう！</p>
-                    <p class="btn-border-radius"><a href="#">もっと詳しくみる</a></p>
+                    <p class="btn-border-radius"><a href="service.html">もっと詳しくみる</a></p>
                 </div>
             </div>
 
@@ -125,7 +125,27 @@
         <script>
             fetch("header.html")
                 .then((response) => response.text())
-                .then((data) => document.querySelector("#header").innerHTML = data);
+                .then(data => {
+                    document.querySelector("#header").innerHTML = data;
+
+                    // header.htmlがロードされた後に実行するスクリプト
+                    var $menubar = $('#menubar');
+                    var $menubarHdr = $('#menubar_hdr');
+
+                    // ハンバーガーメニューをクリックした際の処理
+                    $menubarHdr.click(function () {
+                        $(this).toggleClass('ham'); // トグルするクラス
+                        $menubar.toggleClass('display-block display-none');
+                    });
+
+                    // アンカーリンクの場合にメニューを閉じる処理
+                    $menubar.find('a[href*="#"]').click(function () {
+                        $menubar.removeClass('display-block').addClass('display-none');
+                        $menubarHdr.removeClass('ham');
+                    });
+
+                    // その他のDOMイベントハンドラーもここに追加
+                });
             fetch("footer.html")
                 .then((response) => response.text())
                 .then((data) => document.querySelector("#footer").innerHTML = data);
