@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../images/logo.png">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <title>RAG(Retrieval-Augmented Generation)とは何か？</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Twitterカードタイプ(summary_large_imageは大きい画像を表示) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Twitterカードの画像 -->
+    <meta name="twitter:image" content="https://ai-solutions-lab.com/images/horse_ai_sumnail.png" />
+
+    <!-- Twitterでのタイトル -->
+    <meta name="twitter:title" content="RAG(Retrieval-Augmented Generation)とは何か？" />
+
+    <!-- Twitterでの説明文 -->
+    <meta name="twitter:description" content="RAG(Retrieval-Augmented Generation)とは何か？" />
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4257BHZ3F8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-4257BHZ3F8');
+</script>
+
+<div id="header"></div>
+<body>
+    <div class="page-title-wrapper">
+        <h1 class="page-title">RAG(Retrieval-Augmented Generation)とは何か？</h1>
+        <div class="page-meta">
+            <span>2024/10/07更新</span>
+            <i class="fa fa-user"></i>
+            <span>KAWANO</span>
+        </div>
+    </div>
+    <div class="container">
+        <main>
+            <article>
+                <div class="tags">
+                    <span class="tag">機械学習</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">データサイエンス</span>
+                    <span class="tag">LLM</span>
+                </div>
+                <section>
+                    <img src="../images/rag_sumnail.png" alt="RAG" class="responsive-image">
+                    <p>株式会社AI Solutions Labでは生成AIのビジネス活用を行なっております．</p>
+                    <p>今回は弊社で提供しておりますRAG(検索拡張生成)についてご紹介します．</p>
+                </section>
+                <section>
+                    <h2>1. はじめに</h2>
+                    <p>
+                        最近のAI技術の進化は目覚ましいものがありますが，特に注目されているのが，Retrieval-Augmented Generation(RAG)と呼ばれる技術です．
+                        このブログでは，RAGが通常の大規模言語モデル(LLM)とどのように異なるか，そしてなぜ多くの業界でその利用が検討されているのかを探ります．
+                        技術的な詳細からビジネスへの応用まで，RAGの魅力を解き明かし，皆様のビジネスにもこの革新的な技術がどのように貢献できるかをご案内します．
+                    </p>
+                </section>
+                <section>
+                    <h2>2. RAGとは何か？</h2>
+                    <p>
+                        生成AI(LLM)は人間が書くような自然な文章を生成することができます．
+                        LLMは翻訳，要約，質問応答など，さまざまなタスクに使用されていますが，その知識は学習されたデータセットに基づいています．
+                        そのため，LLM単体では最新の情報が反映されていない，専門知識が不足している，不正確な情報を生成してしまう(ハルシネーション)などの問題があります．
+                    </p>
+                    <p>
+                        一方で，最新情報の活用や，特定の専門知識を持つLLMの需要は高まっています．
+                        例えば，社内情報について答えてくれるAIや，最新のニュースを教えてくれるAIなどが求められています．
+                        RAGは，こうした需要を解決する一つのアプローチです．
+                        RAGを用いることで特定の専門知識に基づく質問についての回答を生成することが可能になり，不正確な情報を生成してしまう(ハルシネーション)を減らすことができます．
+                    </p>
+                </section>
+                <section>
+                    <h2>3. RAGの利点</h2>
+                    <p>RAG技術は，特に次のようなビジネスシナリオで有効です．
+                        <ul>
+                            <li><b>情報の現行性</b>: RAGは最新の情報に基づいて回答を生成するため，変化が激しい業界やニュース，研究領域などにおいて非常に有効です．</li>
+                            <li><b>カスタマイズ可能性</b>: 特定のドメインや業界に特化したデータベースと組み合わせることで，専門的な回答が可能になります．この柔軟性が多岐にわたるビジネスニーズに応えます．</li>
+                            <li><b>スケーラビリティ</b>: 大規模言語モデルと組み合わせることで，さまざまな言語やドメインに適応する能力を持ちます．</li>
+                            <li><b>エンゲージメントの向上</b>: より関連性の高い，個別化された内容をユーザーに提供することで，顧客のエンゲージメントを向上させます．</li>
+                        </ul>
+                    </p>
+                </section>
+                <section></section>
+                    <h2>4. RAGの仕組み</h2>
+                    <img src="images-rag/RAG_flow.jpg" alt="RAGのフロー"
+                        class="responsive-image">
+                    <p>RAGの動作は大きく分けて二つのフェーズに分類されます．</p>
+                    <p><b>1. 検索フェーズ</b></p>
+                    <p>
+                        検索フェーズでは，ユーザーからの質問に対して最も適切な情報を見つけ出すことが目的です．具体的には，以下のステップに従います．
+                        <ul>
+                            <li><b>1. 質問の受付</b>: ユーザーがRAGを用いたアプリケーションに質問を送信します．</li>
+                            <li><b>2. データの検索</b>: アプリケーションは，外部データベースにアクセスし，質問に関連する情報を持つ文書を検索します．この際，キーワード検索，ベクトル検索，またはハイブリッド検索技術が使用されることが一般的です．</li>
+                            <li><b>3. 情報の取得</b>: 関連する文書が特定された後，その内容が取得されます．このフェーズが完了すると，AIは質問に対する答えを生成するための具体的な情報を手に入れたことになります．</li>
+                        </ul>
+                    </p>
+                    <p><b>2. 生成フェーズ</b></p>
+                    <p>
+                        検索フェーズで取得した文書の情報を基に，実際にユーザーの問いに応じた回答を生成します．
+                        <ul>
+                            <li><b>4. 情報の統合</b>: 取得した文書のデータを，ユーザーの質問と共にLLMへ送信します．この際，文書の情報がコンテキストとして機能し，LLMによる回答の精度と関連性が向上します．</li>
+                            <li><b>5. 回答の生成</b>: LLMは提供された質問とコンテキストを元に，適切な回答を生成します．</li>
+                            <li><b>6. 回答の提供</b>: 最終的に生成された回答がユーザーに表示されます．</li>
+                        </ul>
+                    </p>
+                    <p>
+                        このシンプルながら強力な構造により，RAGは既存の知識ベースの限界を超えて，リアルタイムで，かつ具体的な情報ニーズに応えることが可能です．
+                        検索フェーズでのデータの整形や検索アルゴリズムの選定が精度に直接影響を与えるため，ここには特に注意が必要です．
+                        適切な設計と実装によって，RAGは多様なビジネスアプリケーションにおいてその真価を発揮します．
+                    </p>
+
+                </section>
+                <section>
+                    <h2>5. まとめ</h2>
+                    <p>
+                        Retrieval-Augmented Generation(RAG)は，従来の大規模言語モデルの限界を超え，より動的で正確な情報提供を可能にします．
+                        これにより，企業は最新の情報を基にした意思決定を行うことができ，ビジネスのあらゆる側面での正確性と効率が向上します．
+                        弊社のRAGサービスを利用することで，お客様のビジネスが如何に変革されるか，ぜひその目でお確かめください．
+                        この技術がどのように皆様の業務をサポートするか，さらに詳しく知りたい方は，ぜひお問い合わせください．
+                    </p>
+                </section>
+            </article>
+        </main>
+        <aside>
+            <div class="share-buttons">
+                <button class="share-button share-button" onclick="shareOnX()">
+                    <img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="X"
+                        style="height: 45px; vertical-align: middle;">
+                    <span>Share on LINE</span>
+                </button>
+                <button class="share-button share-button" onclick="shareOnLINE()">
+                    <img src="https://img.icons8.com/color/48/000000/line-me.png" alt="LINE"
+                        style="height: 50px; vertical-align: middle;">
+                    <span>Share on LINE</span>
+                </button>
+                <button class="share-button share-button" onclick="shareOnFacebook()">
+                    <img src="https://img.icons8.com/?size=100&id=13912&format=png&color=000000" alt="Facebook"
+                        style="height: 50px; vertical-align: middle;">
+                    <span>Share on Facebook</span>
+                </button>
+            </div>
+            <div class="toc">
+                <h2>目次</h2>
+                <ul id="toc"></ul>
+            </div>
+        </aside>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const headings = document.querySelectorAll('main h2, main h3'); // main タグ内の h2 と h3 タグを検索
+                const toc = document.getElementById('toc');
+
+                headings.forEach(heading => {
+                    const id = heading.textContent.replace(/\s+/g, '-').toLowerCase(); // 見出しのテキストをIDに変換
+                    heading.id = id; // 見出しにIDを設定
+
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.textContent = heading.textContent;
+                    a.href = '#' + id;
+
+                    li.appendChild(a);
+                    toc.appendChild(li); // 目次に項目を追加
+                });
+            });
+        </script>
+        <script>
+            function shareOnX() {
+                const title = document.title;
+                const url = window.location.href;
+                const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+                window.open(twitterUrl, '_blank');
+            }
+
+            function shareOnLINE() {
+                const url = window.location.href;
+                const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}`;
+                window.open(lineUrl, '_blank');
+            }
+
+            function shareOnFacebook() {
+                const url = window.location.href;
+                const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                window.open(facebookUrl, '_blank');
+            }
+        </script>
+    </div>
+    <div id="footer"></div>
+    <!--ページの上部へ戻るボタン-->
+    <div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+    <script>
+        fetch("header.html")
+            .then((response) => response.text())
+            .then(data => {
+                document.querySelector("#header").innerHTML = data;
+
+                // header.htmlがロードされた後に実行するスクリプト
+                var $menubar = $('#menubar');
+                var $menubarHdr = $('#menubar_hdr');
+
+                // ハンバーガーメニューをクリックした際の処理
+                $menubarHdr.click(function () {
+                    $(this).toggleClass('ham'); // トグルするクラス
+                    $menubar.toggleClass('display-block display-none');
+                });
+
+                // アンカーリンクの場合にメニューを閉じる処理
+                $menubar.find('a[href*="#"]').click(function () {
+                    $menubar.removeClass('display-block').addClass('display-none');
+                    $menubarHdr.removeClass('ham');
+                });
+
+                // その他のDOMイベントハンドラーもここに追加
+            });
+        fetch("footer.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#footer").innerHTML = data);
+    </script>
+    <div id="menubar_hdr">
+        <span></span><span></span><span></span>
+    </div>
+
+    <!--jQueryの読み込み-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--パララックス(inview)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="../js/jquery.inview_set.js"></script>
+
+    <!--このテンプレート専用のスクリプト-->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
