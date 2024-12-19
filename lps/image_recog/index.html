@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions Lab - セマンティックセグメンテーション & 物体検知ソリューション</title>
+    <link rel="icon" type="image/x-icon" href="../../images/logo.png">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<script src="src/js/slider.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4257BHZ3F8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4257BHZ3F8');
+</script>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="../../index.html" style="text-decoration: none; color: inherit;">AI Solutions Lab</a>
+                </div>
+                <ul>
+                    <li><a href="#features">特徴</a></li>
+                    <li><a href="#usecases">活用事例</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>高精度な画像認識で<br>ビジネスを革新する</h2>
+                <p>セマンティックセグメンテーション＆物体検知ソリューション</p>
+                <!-- <img src="images/aerial_seg.png" alt="AI Solutions Labのデモ画面" class="hero-image"> -->
+                <div class="hero-slider">
+                    <button class="slider-button prev" aria-label="前の画像">&lt;</button>
+                    <button class="slider-button next" aria-label="次の画像">&gt;</button>
+                    <div class="slider-container">
+                        <div class="slide">
+                            <img src="images/aerial_seg.png" alt="AI Solutions Labのデモ画面" class="hero-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/open_vocab.png" alt="Second Image Description" class="hero-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/agriculture.png" alt="Second Image Description" class="hero-image">
+                        </div>
+                        <div class="slide">
+                            <img src="images/screw.png" alt="Second Image Description" class="hero-image">
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <div class="slider-dot active"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>主な特徴</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="images/few_shot.png" alt="Few-shot学習" class="feature-image">
+                        <h3>Few-shot学習</h3>
+                        <p>少量のデータでも高精度な学習が可能。データ収集のコストを大幅に削減できます。</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="images/open_vocab.png" alt="オープンボキャブラリ" class="feature-image">
+                        <h3>オープンボキャブラリ</h3>
+                        <p>事前に定義していない物体でも柔軟に検知。新しい対象物への適応が容易です。</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="images/aerial_seg.png" alt="高精度な認識" class="feature-image">
+                        <h3>高精度な認識</h3>
+                        <p>最新のAIモデルによる高精度なセグメンテーションと物体検知を実現。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="usecases">
+            <div class="container">
+                <h2>活用事例</h2>
+                <div class="usecase-grid">
+                    <div class="usecase-card">
+                        <img src="images/screw.png" alt="製造業での外観検査" class="usecase-image">
+                        <h3>製造業での外観検査</h3>
+                        <p>製品の傷や欠陥を自動検出し、品質管理を効率化</p>
+                    </div>
+                    <div class="usecase-card">
+                        <img src="images/agriculture.png" alt="農作業自動化" class="usecase-image">
+                        <h3>農作業の自動化への活用</h3>
+                        <p>ロボティクスへの応用や作物の生育状況や病害虫の早期発見に活用</p>
+                    </div>
+                    <div class="usecase-card">
+                        <img src="images/medical.jpg" alt="医療画像診断支援" class="usecase-image">
+                        <h3>医療画像診断支援</h3>
+                        <p>X線やMRI画像の解析をサポートし、診断精度を向上</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>お問い合わせ</h2>
+            <div class="contact-container">
+                <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSd_Qga8SPyVkRtLqNfkZhVliZY5kQrwrbRQsxRD3h87Revtlw/formResponse" method="POST">
+                    <input name="entry.413185252" id="field-name" type="text" placeholder="お名前" required>
+                    <input name="entry.992654899" id="field-name" type="email" placeholder="メールアドレス" required>
+                    <textarea name="entry.299984483" id="field-message" placeholder="メッセージ" required></textarea>
+                    <button type="submit" class="cta-button">送信する</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>
+                    <a href="../../index.html" style="text-decoration: none; color: inherit;">AI Solutions Lab</a>
+                </h4>
+                <p>最新のAI技術で、未来を切り開く</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright&copy; 株式会社AI Solutions Lab All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
